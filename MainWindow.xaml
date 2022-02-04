@@ -1,0 +1,62 @@
+﻿<Window x:Class="Atividade1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Atividade1"
+        mc:Ignorable="d"
+        Title="Criação de Seres em Mass Effect" Height="350" Width="525" Background="Black">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <LinearGradientBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                        <RotateTransform Angle="135" CenterX="0.5" CenterY="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </LinearGradientBrush.RelativeTransform>
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ListView ItemsSource="{Binding listaSeres}" SelectedItem="{Binding SerSelecionado}" Margin="60,40,60,10" Padding="3" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nome" DisplayMemberBinding="{Binding Nome}"/>
+                    <GridViewColumn Header="Nascimento" DisplayMemberBinding="{Binding Nascimento}"/>
+                    <GridViewColumn Header="Sexo" DisplayMemberBinding="{Binding Sexo}"/>
+                    <GridViewColumn Header="Raça" DisplayMemberBinding="{Binding Raça}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="btCriar" Content="Criar" Command="{Binding criarComando}" HorizontalAlignment="Left" Margin="136,10,0,0" VerticalAlignment="Top" Height="25" Width="80" UseLayoutRounding="True" BorderThickness="1,1,1,1">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#26FFFFFF" Offset="1"/>
+                    <GradientStop Color="Transparent" Offset="0"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Name="btEditar" Content="Editar" Command="{Binding editarComando}" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Height="25" Width="80">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#26FFFFFF" Offset="1"/>
+                    <GradientStop Color="Transparent" Offset="0"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Name="btRemover" Content="Remover" Command="{Binding removerComando}" HorizontalAlignment="Left" Margin="304,10,0,0" VerticalAlignment="Top" Width="80" Height="25">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#26FFFFFF" Offset="1"/>
+                    <GradientStop Color="Transparent" Offset="0"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
